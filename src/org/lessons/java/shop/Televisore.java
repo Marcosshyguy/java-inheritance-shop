@@ -31,4 +31,11 @@ public class Televisore extends Prodotto{
     public void setSize(double size) {
         this.size = size;
     }
+
+//    METHODS
+//    OVERRIDE
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
+    }
 }

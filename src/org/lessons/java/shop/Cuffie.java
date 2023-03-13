@@ -6,6 +6,7 @@ public class Cuffie extends Prodotto {
 //    ATTRIBUTES
     private boolean[] isWireless = {true,false};
 
+
     private boolean wireless;
 
     private  String color;
@@ -13,7 +14,8 @@ public class Cuffie extends Prodotto {
     int randomNumber = randomizer.nextInt( isWireless.length);
 //    CONSTRUCTOR
 
-    Cuffie(){
+    Cuffie(String color){
+        this.color = color;
         wireless = isWireless[randomNumber];
     }
 //SETTER AND GETTER
@@ -33,12 +35,24 @@ public class Cuffie extends Prodotto {
     public void setColor(String color) {
         this.color = color;
     }
+    //    OVERRIDE
+
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
+    }
+
+    @Override
+    public String getPrice() {
+        return super.getPrice();
+    }
 
     @Override
     public String toString() {
         return "Cuffie{" +
-                "wireless=" + wireless +
-                ", color='" + color + '\'' +
+                "price = " + getPrice() +
+                " wireless = " + wireless +
+                ", color = " + color  +
                 '}';
     }
 }

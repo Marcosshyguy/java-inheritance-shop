@@ -36,6 +36,7 @@ public class Smartphone extends Prodotto {
         this.memory = memory;
     }
 
+//    OVERRIDE
     @Override
     protected String padLeft(int code) {
         String codeString = Integer.toString(code);
@@ -46,5 +47,24 @@ public class Smartphone extends Prodotto {
         } else {
             return codeString;
         }
+    }
+
+    @Override
+    public void setPrice(double price) {
+        super.setPrice(price);
+    }
+
+    @Override
+    public String getPrice() {
+        return super.getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return "Smartphone{" +
+                "price = " + getPrice() +
+                " imei=" + imei +
+                ", memory=" + memory +
+                '}';
     }
 }

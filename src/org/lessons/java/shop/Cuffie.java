@@ -1,5 +1,6 @@
 package org.lessons.java.shop;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Cuffie extends Prodotto {
@@ -43,16 +44,25 @@ public class Cuffie extends Prodotto {
     }
 
     @Override
-    public String getPrice() {
+    public double getPrice() {
         return super.getPrice();
     }
 
     @Override
+    public String GetPriceWithVAT() {
+        DecimalFormat toDecimal = new DecimalFormat("0.00");
+        double price = getPrice();
+        double vatPrice = price * 0.22;
+        vatPrice += price;
+        String formattedPriceVAT = toDecimal.format(vatPrice);
+        return  formattedPriceVAT;
+    }
+
+    @Override
     public String toString() {
-        return "Cuffie{" +
-                "price = " + getPrice() +
-                " wireless = " + wireless +
-                ", color = " + color  +
-                '}';
+        return "Cuffie = " +
+                "price = " + GetPriceWithVAT() + "$"+
+                ", wireless = " + wireless +
+                ", color = " + color;
     }
 }

@@ -17,8 +17,8 @@ public class Prodotto {
     private int code;
 
     Random randomizer = new Random();
-    DecimalFormat toDecimal = new DecimalFormat("#.##");
 
+    DecimalFormat toDecimal = new DecimalFormat("0.00");
     //CONSTRUCTOR
     public Prodotto() {
         code = randomizer.nextInt(1001);
@@ -45,9 +45,8 @@ public class Prodotto {
         return description;
     }
 
-    public String getPrice() {
-
-        return  toDecimal.format(price);
+    public double getPrice() {
+        return  price;
     }
 
     public void setName(String name) {
@@ -77,6 +76,7 @@ public class Prodotto {
     }
 
     public String GetPriceWithVAT(){
+
         double vatPrice = price * 0.22;
         vatPrice += price;
         String formattedPriceVAT = toDecimal.format(vatPrice);

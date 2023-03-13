@@ -1,5 +1,6 @@
 package org.lessons.java.shop;
 
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Smartphone extends Prodotto {
@@ -55,16 +56,26 @@ public class Smartphone extends Prodotto {
     }
 
     @Override
-    public String getPrice() {
+    public double getPrice() {
         return super.getPrice();
     }
 
     @Override
+    public String GetPriceWithVAT() {
+        DecimalFormat toDecimal = new DecimalFormat("0.00");
+        double price = getPrice();
+        double vatPrice = price * 0.22;
+        vatPrice += price;
+        String formattedPriceVAT = toDecimal.format(vatPrice);
+        return  formattedPriceVAT;
+    }
+
+    @Override
     public String toString() {
-        return "Smartphone{" +
-                "price = " + getPrice() +
-                " imei=" + imei +
-                ", memory=" + memory +
-                '}';
+        return "Smartphone = " +
+                "price = " + GetPriceWithVAT() + "$"+
+                ", imei=" + imei +
+                ", memory=" + memory
+                ;
     }
 }

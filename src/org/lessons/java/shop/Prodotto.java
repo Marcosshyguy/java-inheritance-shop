@@ -16,6 +16,8 @@ public class Prodotto {
 
     private int code;
 
+    private double discount;
+
     Random randomizer = new Random();
 
     DecimalFormat toDecimal = new DecimalFormat("0.00");
@@ -61,6 +63,15 @@ public class Prodotto {
         this.price = price;
     }
 
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
+    }
+
+    //      OVERRIDE
     @Override
     public String toString() {
         return "Prodotto " +
@@ -93,5 +104,8 @@ public class Prodotto {
             return codeString;
         }
     }
-
+    //default discount
+    public double addDiscount(){
+        return price - price * discount;
+    }
 }

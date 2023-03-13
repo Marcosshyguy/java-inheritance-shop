@@ -10,14 +10,13 @@ public class Smartphone extends Prodotto {
     private int memory;
 
     Random randomizer = new Random();
-    int randomNumber = randomizer.nextInt(1,1000000000);
 
 //    CONSTRUCTOR
 
 
     public Smartphone() {
-        imei = padLeft(randomNumber);
-        memory= 128;
+        imei = padLeft(randomizer.nextInt(1,1000000000));
+        memory= randomizer.nextInt(8,280);
     }
 
     //    GETTER AND SETTER
@@ -68,6 +67,20 @@ public class Smartphone extends Prodotto {
         vatPrice += price;
         String formattedPriceVAT = toDecimal.format(vatPrice);
         return  formattedPriceVAT;
+    }
+
+    @Override
+    public double addDiscount() {
+        return getPrice()- getPrice() * getDiscount();
+    }
+
+    @Override
+    public double getDiscount() {
+        if (memory <= 36) {
+            return 0.05;
+        }else {
+            return 0.02;
+        }
     }
 
     @Override

@@ -59,6 +59,20 @@ public class Cuffie extends Prodotto {
     }
 
     @Override
+    public double addDiscount() {
+        return getPrice()- getPrice() * getDiscount();
+    }
+
+    @Override
+    public double getDiscount() {
+        if (wireless) {
+            return 0.07;
+        }else {
+            return 0.02;
+        }
+    }
+
+    @Override
     public String toString() {
         return "Cuffie = " +
                 "price = " + GetPriceWithVAT() + "$"+

@@ -56,6 +56,20 @@ public class Televisore extends Prodotto{
     }
 
     @Override
+    public double addDiscount() {
+        return getPrice()- getPrice() * getDiscount();
+    }
+
+    @Override
+    public double getDiscount() {
+        if (smart) {
+            return 0.10;
+        }else {
+            return 0.02;
+        }
+    }
+
+    @Override
     public String toString() {
         return "Televisore = " +
                 "price = " + GetPriceWithVAT() + "$"+

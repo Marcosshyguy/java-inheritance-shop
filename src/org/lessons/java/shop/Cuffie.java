@@ -33,4 +33,12 @@ public class Cuffie extends Prodotto {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "Cuffie{" +
+                "wireless=" + wireless +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }

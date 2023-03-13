@@ -10,7 +10,7 @@ public class Televisore extends Prodotto{
     private double size;
 
     Random randomizer = new Random();
-    int randomNumber = randomizer.nextInt(0,2);
+    int randomNumber = randomizer.nextInt( isSmart.length);
     Televisore(){
         smart = isSmart[randomNumber];
         size = 6.01;

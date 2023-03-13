@@ -24,8 +24,8 @@ public class Smartphone extends Prodotto {
         return imei;
     }
 
-    public void setImei(int imei) {
-        imei = imei;
+    public void setImei(String imei) {
+        this.imei = imei;
     }
 
     public int getMemory() {
